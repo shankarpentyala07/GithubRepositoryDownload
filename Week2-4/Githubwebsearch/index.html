@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+
+</style>
+
+<body class="body">
+
+<div ng-controller="View1Ctrl" style="top: 200px">
+
+    <div class="menu" id="div_SearchContainer" >
+        <h1 align="absolute" style="text-align: center; color: #1ab188">Github Search</h1>
+        <input type="hidden" id="txt_placeName" placeholder="Enter the place you want to search for"
+               style="margin-left: 100px"/>
+        <input type="text" id="txt_searchFilter" placeholder="Enter the search query" style="margin-left:500px"/><br>
+        <button id="btn_getReview" ng-click="getVenues()" style="margin-left:450px">Submit</button>
+    </div>
+
+    <div id="div_VenueList">
+        <h2 style="text-align: center; color: #1ab188"> List of Top Picked Repositories </h2>
+        <table>
+            <tr ng-repeat="venue in venueList">
+                <td><a href ="{{ venue.html_url }}" target ="_blank">{{venue.full_name}}</a></td>
+                <td><a href ="{{ venue.url }}/zipball/master">Download</a></td>
+                <td>{{venue.stargazers_count}}</td>
+                <td>{{venue.size}}</td>
+                <td>{{venue.language}}</td>
+            </tr>
+        </table>
+        <!--   <ul>
+               <li ng-repeat="venue in venueList"
+                   style="font-size: x-large; color: #5e5e5e; text-align: center; list-style: none">
+                   <a href="{{venue.html_url}}" target ="_blank">{{venue.html_url}}</a>
+               </li>
+           </ul>  -->
+    </div>
+</div>
+
+
+<div ng-controller="MongoRestController">
+    <div class="container">
+        <section>
+            <div id="container_demo" >
+
+                <div id="wrapper" style="width: 80%">
+
+                    <div id="login" class="contact-form" style="width:100%;" ng-init="getData()">
+                        <h1>ModelKB</h1>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Accuracy</th>
+                                <th>Language</th>
+                                <th>URL</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr ng-repeat="user in userlist">
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Name" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Type" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Accuracy" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Language" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Url" /></td>
+                                <!--<td><button class="btn btn-danger" ng-click="remove(user)">Remove</button></td>
+                                <td><button class="btn btn-warning" ng-click="edit(user)">Edit</button></td> -->
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- start-account -->
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
