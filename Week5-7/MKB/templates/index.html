@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--<html lang="en" ng-app="myApp" class="no-js"> -->
+<html lang="en" ng-app="myApp" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ModelKB-UMKC</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+ <script type="text/javascript" src="{{ url_for('static', filename='js/angular.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/mongo.js') }}"></script>
+</head>
+<body class="body">
+<h1>Model KB</h1>
+
+<div ng-controller="MongoRestController">
+    <div class="container">
+        <section>
+            <div id="container_demo" >
+
+                <div id="wrapper" style="width: 80%">
+
+                    <div id="login" class="contact-form" style="width:100%;" ng-init="getData()">
+                        <h1>ModelKB</h1>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Accuracy</th>
+                                <th>Language</th>
+                                <th>URL</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr ng-repeat="user in userlist">
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Name" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Type" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Accuracy" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Language" /></td>
+                                <td><input style="width: 70%;" type="text" class="textbox1" name="lname" ng-model="user.Url" /></td>
+                                <!--<td><button class="btn btn-danger" ng-click="remove(user)">Remove</button></td>
+                                <td><button class="btn btn-warning" ng-click="edit(user)">Edit</button></td> -->
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- start-account -->
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+
+</html>
